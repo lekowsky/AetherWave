@@ -1,0 +1,130 @@
+# MCPhone - gui.yml
+# NAPRAWIONA konfiguracja z obsługą MiniMessage shift
+# Działa tak samo jak DeluxeMenus <shift:N>!
+
+phone-gui:
+  # Tytuł GUI z użyciem MiniMessage shift
+  # Zmień -80 na odpowiednią wartość dla Twojej tekstury
+  # Ujemne = w lewo, dodatnie = w prawo
+  title: "<shift:-80><white>Mój Telefon</white>"
+
+  # WAŻNE: musi być "minimessage" aby <shift:N> działał!
+  title-format: "minimessage"
+
+  # title-offset = 0 gdy używasz <shift:N> inline w title
+  title-offset: 0
+
+  # Jeśli używasz Nexo - wpisz tu MiniMessage title z shift:
+  # nexo-title: "<shift:-80><white>Mój Telefon</white>"
+
+  size: 54
+
+  frame:
+    material: BLACK_STAINED_GLASS_PANE
+    custom-model-data: 0
+    display-name: " "
+    slots:
+      - 0
+      - 1
+      - 2
+      - 6
+      - 7
+      - 8
+      - 9
+      - 17
+      - 18
+      - 26
+      - 27
+      - 35
+      - 36
+      - 44
+      - 45
+      - 46
+      - 47
+      - 51
+      - 52
+      - 53
+
+  screen:
+    slots:
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 37
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+    background:
+      material: GRAY_STAINED_GLASS_PANE
+      custom-model-data: 0
+      display-name: " "
+
+  navigation:
+    left:
+      slot: 48
+      material: ARROW
+      display-name: "&7◄ Poprzednia strona"
+      lore: []
+    home:
+      slot: 49
+      material: NETHER_STAR
+      display-name: "&f⌂ Pulpit"
+      lore: []
+    right:
+      slot: 50
+      material: ARROW
+      display-name: "&7Następna strona ►"
+      lore: []
+
+contacts-gui:
+  title: "☎ Kontakty"
+  size: 54
+  add-button:
+    slot: 49
+    material: LIME_DYE
+    display-name: "&a✚ Dodaj kontakt"
+
+sms-gui:
+  title: "✉ Wiadomości - {contact}"
+  size: 54
+  compose-button:
+    slot: 49
+    material: WRITABLE_BOOK
+    display-name: "&e✎ Napisz wiadomość"
+
+sms-conversations-gui:
+  title: "✉ Wiadomości"
+  size: 54
+
+appstore-gui:
+  title: "🛒 Sklep z aplikacjami"
+  size: 54
+
+settings-gui:
+  title: "⚙ Ustawienia"
+  size: 54
+
+sim-shop-gui:
+  title: "💳 Sklep z kartami SIM"
+  size: 27

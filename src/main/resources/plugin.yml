@@ -1,0 +1,50 @@
+name: MCPhone
+version: ${project.version}
+main: pl.skyrise.mCPhone.MCPhone
+api-version: '1.21'
+description: Kompletny system telefonu komórkowego w Minecraft
+author: SkyRise
+website: https://skyrise.pl
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - DecentHolograms
+
+commands:
+  phone:
+    description: Otwiera telefon gracza
+    usage: /<command>
+    aliases: [telefon, tel]
+  sms:
+    description: Szybkie wysyłanie wiadomości SMS
+    usage: /<command> <gracz/numer> <wiadomość>
+    aliases: [msg, wiadomosc]
+  phoneadmin:
+    description: Komendy administracyjne MCPhone
+    usage: /<command> <podkomenda> [argumenty]
+    aliases: [padmin, phoneadm]
+
+permissions:
+  mcphone.use:
+    description: Pozwala na używanie telefonu
+    default: true
+  mcphone.sms:
+    description: Pozwala na wysyłanie wiadomości SMS
+    default: true
+  mcphone.admin:
+    description: Pełne uprawnienia administracyjne MCPhone
+    default: op
+    children:
+      mcphone.admin.reload: true
+      mcphone.admin.give: true
+      mcphone.admin.number: true
+  mcphone.admin.reload:
+    description: Pozwala na przeładowanie konfiguracji
+    default: op
+  mcphone.admin.give:
+    description: Pozwala na dawanie telefonów i kart SIM
+    default: op
+  mcphone.admin.number:
+    description: Pozwala na zarządzanie numerami telefonów
+    default: op
