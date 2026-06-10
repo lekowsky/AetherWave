@@ -1,0 +1,35 @@
+name: VendingMachine
+version: '2.0.0'
+main: pl.skyrise.vendingMachine.VendingMachine
+api-version: '1.21'
+prefix: VendingMachine
+authors:
+  - Skyrise
+depend:
+  - Vault
+softdepend:
+  - Nexo
+
+commands:
+  vendingmachine:
+    description: Main vending machine command
+    aliases:
+      - vm
+      - automat
+    permission: vendingmachine.use
+
+permissions:
+  vendingmachine.admin:
+    default: op
+  vendingmachine.use:
+    default: true
+  vendingmachine.create:
+    default: op
+  vendingmachine.place:
+    default: op
+  vendingmachine.edit:
+    default: op
+  vendingmachine.delete:
+    default: op
+  vendingmachine.restock.notify:
+    default: op

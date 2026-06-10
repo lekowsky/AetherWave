@@ -1,0 +1,171 @@
+# ============================================
+#  VendingMachine Plugin v2.1 Configuration
+#  Z systemem stocku i auto-dostaw
+# ============================================
+
+prefix: "&8[&6VM&8] &r"
+currency-symbol: "$"
+
+# Cooldown na klikanie automatu (w milisekundach)
+# 500 = pół sekundy, anty-spam
+interact-cooldown-ms: 500
+
+# ==================
+# NEXO INTEGRATION
+# ==================
+nexo:
+  enabled: true
+  auto-register-furniture: true
+  furniture-mappings:
+    # Format: nexo_furniture_id: "nazwa_szablonu"
+    vending_machine: "default"
+
+# ==================
+# SOUNDS
+# ==================
+sounds:
+  open: "UI_BUTTON_CLICK"
+  success: "ENTITY_PLAYER_LEVELUP"
+  fail: "ENTITY_VILLAGER_NO"
+  restock: "BLOCK_NOTE_BLOCK_PLING"
+
+# ==================
+# PARTICLES
+# ==================
+particles:
+  enabled: true
+  type: "HAPPY_VILLAGER"
+  count: 10
+
+# ==================
+# DOMYŚLNE USTAWIENIA SZABLONU
+# ==================
+default-template:
+  rows: 5
+  title: "&8Automat"
+  fill-empty: false
+  filler-material: "BLACK_STAINED_GLASS_PANE"
+  filler-name: " "
+  border: false
+  border-material: "BLACK_STAINED_GLASS_PANE"
+  border-name: " "
+
+  close-button:
+    enabled: true
+    slot: -1
+    material: "BARRIER"
+    name: "&cZamknij"
+
+# ==================
+# SYSTEM STOCKU
+# ==================
+stock:
+  # Domyślne ustawienia dla nowych itemów
+  defaults:
+    unlimited: true        # Domyślnie nieograniczony stock (kompatybilność)
+    max-stock: 64          # Domyślny maksymalny stock
+    initial-stock: 0       # Początkowy stock
+
+  # Powiadomienia o niskim stocku
+  low-stock-warning:
+    enabled: true
+    threshold: 5           # Ostrzeżenie gdy stock < 5
+    scan-interval: 5
+    notify-admins: true    # Powiadom adminów online
+    log-to-console: true   # Loguj do konsoli
+
+  # Wyświetlanie w lore
+  display:
+    show-when-unlimited: true   # Pokaż "∞" dla unlimited
+    show-numeric: true          # Pokaż liczbę dostępnych sztuk
+    sold-out-text: "&cWyprzedane!"
+    available-text: "&aDostępne: {amount} szt."
+    unlimited-text: "&aDostępność: ∞"
+
+# ==================
+# AUTO-RESTOCK (DOMYŚLNE)
+# ==================
+auto-restock:
+  # Domyślne ustawienia dla nowych szablonów
+  defaults:
+    enabled: false
+    interval: 30          # Co ile minut
+    amount: 10            # Ile sztuk dodawać
+
+  # Globalne limity
+  min-interval: 1         # Minimum 1 minuta
+  max-interval: 1440      # Max 24 godziny
+  min-amount: 1
+  max-amount: 1000
+
+  # Powiadomienia
+  notify-on-restock: true        # Loguj do konsoli
+  broadcast-restock: false       # Wyślij wszystkim na serwerze
+  broadcast-message: "&7[&6Automat&7] &aUzupełniono zapasy: &e{template}"
+
+# ==================
+# SAFETY / OCHRONA
+# ==================
+protection:
+  # Czy zwykli gracze mogą niszczyć automaty
+  allow-player-break: false
+  # Czy automatycznie usuwać zniszczone bloki z bazy
+  auto-cleanup: true
+  # Czy chronić przed eksplozjami
+  explosion-protection: true
+
+# ==================
+# WIADOMOŚCI
+# ==================
+messages:
+  # Ogólne
+  no-permission: "&cBrak uprawnień."
+  invalid: "&cNieprawidłowa wartość."
+  cancelled: "&cAnulowano."
+
+  # Szablony
+  created: "&aUtworzono szablon &e{name}&a."
+  deleted: "&cUsunięto szablon &e{name}&c."
+  not-found: "&cNie znaleziono szablonu &e{name}&c."
+  exists: "&cSzablon &e{name} &cjuż istnieje."
+
+  # Stawianie
+  placed: "&aPostawiono automat (&e{template}&a)."
+  removed: "&cUsunięto automat."
+  placement-mode: "&aTryb stawiania włączony! Kliknij &ePPM &ana blok lub furniture."
+  placement-cancelled: "&cAnulowano tryb stawiania."
+
+  # Zakupy
+  purchase-success: "&aKupiono &7{item} &aza &e{price}{currency}&a."
+  no-money: "&cNie stać cię! Potrzebujesz &e{price}{currency}&c."
+  no-space: "&cBrak miejsca w ekwipunku."
+  limit-reached: "&cOsiągnięto limit zakupów dla tego przedmiotu."
+  disabled: "&cTen automat jest wyłączony."
+  sold-out: "&cTen produkt jest wyprzedany!"
+
+  # Stock
+  stock-added: "&aDodano &e{amount} &asztuk do &e{item} &a(stock: &e{stock}&a)"
+  stock-removed: "&cUsunięto &e{amount} &csztuk z &e{item} &c(stock: &e{stock}&c)"
+  stock-set: "&aUstawiono stock &e{item} &ana &e{amount}"
+  stock-filled: "&aWypełniono zapasy automatu &e{template}&a do max!"
+  stock-restocked: "&aWykonano restock automatu &e{template} &a(+{amount} szt.)"
+  stock-low-warning: "&e⚠ Niski stock w automacie &6{template}&e: &f{item} &7(&e{stock}&7/&e{max}&7)"
+  stock-empty: "&c⚠ Wyprzedano &f{item} &cw automacie &6{template}&c!"
+
+  # Itemy
+  item-added: "&aDodano przedmiot do automatu."
+  item-removed: "&cUsunięto przedmiot z automatu."
+
+  # System
+  reload: "&aPrzeładowano konfigurację."
+
+  # GUI listy
+  list-header: "&8--- &6Szablony automatów &8---"
+  list-entry: "&7{id}. &f{name} &8(&7{rows}r, {items} items, {placements} instancji&8)"
+
+  # Pomoc
+  help-header: "&8--- &6VendingMachine v2.1 &8---"
+
+  sold-out: "&cTen produkt jest wyprzedany!"
+  stock-empty: "&c⚠ Wyprzedano &f{item} &cw automacie &6{template}&c! &7({location})"
+  stock-low-warning: "&e⚠ Niski stock w automacie &6{template}&e: &f{item} &7(&e{stock}&7/&e{max}&7) &8- {location}"
